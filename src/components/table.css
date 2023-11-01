@@ -1,0 +1,36 @@
+table,
+th,
+td {
+  border: 1px grey solid;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+thead {
+  background-color: lightgray;
+}
+
+thead th:first-child {
+  text-align: left;
+}
+
+tbody th {
+  background-color: lightgreen;
+}
+
+tbody td ~ td {
+  text-align: center;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  table {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  table {
+    width: 400px;
+  }
+}
