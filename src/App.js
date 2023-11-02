@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import ProductTable from "./components/ProductTable";
 
@@ -11,10 +12,18 @@ function App() {
     { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
     { category: "Vegetables", price: "$1", stocked: true, name: "Peas" },
   ];
+
+  const [filterText, setFilterText] = useState("");
+  const [inStockOnly, setInStockOnly] = useState(false);
+
   return (
     <div className="App">
-      <SearchBar />
-      <ProductTable products={products}/>
+      <SearchBar filterText={filterText} inStockOnly={inStockOnly} onFilterTextChange={setFilterText} onInStockOnlyChange={setInStockOnly} />
+      <ProductTable
+        products={products}
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+      />
     </div>
   );
 }
